@@ -1,0 +1,33 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        test1 = x
+        string_enumerate = str(test1)
+        size = len(str(test1))
+        midpoint = 0
+
+        if size%2:
+            size_holder = size + 1
+            midpoint = (size_holder/2)-1 # index of midpoint in case        that the string length is odd so middle term stays isolated from both sides
+        else:
+            midpoint = int((size/2) - 1) # midpoint is made using len so reducing by 1 breaks the string evenly
+
+        half1 = []
+        half2 = []
+        n = 0
+        m = -1
+        # print("midpoint: ", midpoint)
+
+        while n <= midpoint:
+            half1.append(string_enumerate[n])
+            n += 1
+
+        while m >= ((-midpoint)-1):
+            half2.append(string_enumerate[m])
+            m-=1
+        
+        if half1 == half2:
+            return True
+        else:
+            return False
+            
+# Accomplishment - Solution runtime being faster than 88% of other solutions successfully submitted!!!
